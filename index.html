@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Letter</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f5f7fa, #e4e9f2);
+      font-family: 'Georgia', serif;
+      overflow: hidden;
+    }
+    
+    .container {
+      position: relative;
+      width: 350px;
+      height: 450px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .envelope {
+      position: absolute;
+      width: 300px;
+      height: 200px;
+      background-color: #e84c65;
+      border-radius: 5px;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      transition: opacity 0.8s ease;
+      z-index: 1; /* Changed from 2 to 1 so letter can be on top */
+      top: 125px;
+    }
+    
+    .envelope-flap {
+      position: absolute;
+      width: 100%;
+      height: 70px;
+      top: -70px;
+      left: 0;
+      background-color: #e84c65;
+      clip-path: polygon(0 100%, 50% 0, 100% 100%);
+      transform-origin: bottom;
+      transition: transform 0.6s ease;
+    }
+    
+    .envelope.active .envelope-flap {
+      transform: rotateX(180deg);
+    }
+    
+    .envelope-seal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background-color: #ca3952;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .envelope-seal:after {
+      content: '❤';
+      font-size: 30px;
+      color: #fff;
+    }
+    
+    .envelope.fade-out {
+      opacity: 0;
+    }
+    
+    .letter {
+      position: absolute;
+      width: 260px;
+      height: 360px;
+      background: url(paper.png), no-repeat;
+      background-size: cover;
+      padding: 30px;
+      border-radius: 0px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      z-index: 2; /* Changed from 1 to 2 so it's above the envelope */
+      opacity: 0;
+      transform: translate(20px, 155px) scale(0.75);
+      transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                  opacity 0.5s ease,
+                  width 0.8s ease,
+                  height 0.8s ease;
+      overflow-y: auto;
+    }
+    .letter::-webkit-scrollbar{
+        display: none;
+    }
+    
+    .letter.pop-out {
+      opacity: 1;
+      transform: translate(45px, 40px) scale(2.1);
+      width: 280px;
+      height: 380px;
+    
+    }
+    
+    .letter h1 {
+      color: #e84c65;
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: normal;
+    }
+    
+    .letter p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+      color: #444;
+      font-size: 16px;
+    }
+    
+    .signature {
+      text-align: right;
+      font-style: italic;
+      margin-top: 30px;
+      color: #555;
+    }
+    
+    .click-instruction {
+      position: absolute;
+      bottom: 20px;
+      font-size: 14px;
+      color: #777;
+      text-align: center;
+      width: 100%;
+      animation: pulse 2s ease-in-out infinite;
+      transition: opacity 0.5s ease;
+    }
+    
+    .click-instruction.hide {
+      opacity: 0;
+    }
+
+    h1{
+        font-size: 30px;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="envelope">
+      <div class="envelope-flap"></div>
+      <div class="envelope-seal"></div>
+    </div>
+    
+    <div class="letter">
+      <h1>My Dearest Preet 💓</h1>
+      
+      <p>Bhai it's been a hell of a rollercoaster ride with you, trust me i'd give my everything for a ride like this 😭</p>
+      
+      <p>From the moment you entered my life, everything changed. you literally thaught me self love and about love in general fr, Tere se hi sikha hu how to love and that it's a give and take thing and aurr bhi bohot kuch</p>
+      
+      <p>But today we have completed 2 fuckin years together can you belive it , 2 saal bc kaise?? kaise jhela hai tune merko , and why tf are you with me im still wondering , why do you love me so much??? </p>
+      
+      <p>But apna ye pyaar bhi nhi hai usse bhai jyaada ban chuka hai kuch toh like a level higher then love,idk what they call it, buut whatever it is i love it between ud , the bond we share is precious and i don'ty wanna loose that, you have seen every side of me in these past two years , you have seen mw crying , smiling, sad, worried,  atp gaand fatna bhi dekh chuki hai fr </p>
+      
+      <p>When I think about our future together, my heart swells with excitement and hope. I dream of adventures we'll share, challenges we'll overcome, and the beautiful life we'll continue to build, side by side. ye paragraph se mera matlab hai mai shadi aur bacche kar chuka hu apne mann mai</p>
+      
+      <p>Thank you for choosing me. Thank you for showing me that true love isn't just a fantasy but something real and tangible that grows stronger with each passing day. With you, I've found everything I never even knew I was looking for.</p>
+      
+      <p>I promise to stand by you, to cherish you, and to love you more deeply with each passing day. No matter what life brings our way, we'll face it together.</p>
+      
+      <div class="signature">Forever and always yours,<br>Babdu 👶</div>
+    </div>
+    
+    <div class="click-instruction">Click the envelope to reveal your letter</div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const envelope = document.querySelector('.envelope');
+      const letter = document.querySelector('.letter');
+      const clickInstruction = document.querySelector('.click-instruction');
+      
+      envelope.addEventListener('click', function() {
+        // First animate the envelope flap
+        envelope.classList.add('active');
+        
+        // After a short delay, pop out the letter
+        setTimeout(function() {
+          letter.classList.add('pop-out');
+          clickInstruction.classList.add('hide');
+        }, 600);
+        
+        // Finally, fade out the envelope after the letter is visible
+        setTimeout(function() {
+          envelope.classList.add('fade-out');
+        }, 1800); // Increased delay to give more time to see letter on top
+      });
+    });
+  </script>
+</body>
+</html>
